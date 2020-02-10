@@ -1,0 +1,178 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="views\css\admin.css" />
+    <None Remove="views\css\bootstrap.css" />
+    <None Remove="views\images\about.png" />
+    <None Remove="views\images\alipay.png" />
+    <None Remove="views\images\customer.png" />
+    <None Remove="views\images\employee.png" />
+    <None Remove="views\images\full.png" />
+    <None Remove="views\images\home.png" />
+    <None Remove="views\images\min.png" />
+    <None Remove="views\images\order.png" />
+    <None Remove="views\images\tabclose.png" />
+    <None Remove="views\images\wechatpay.png" />
+    <None Remove="views\index.html" />
+    <None Remove="views\js\axios.js" />
+    <None Remove="views\js\beetlex4axios.js" />
+    <None Remove="views\js\bootstrap.js" />
+    <None Remove="views\js\jquery.js" />
+    <None Remove="views\js\vue.js" />
+    <None Remove="views\models\about.html" />
+    <None Remove="views\models\about.js" />
+    <None Remove="views\models\bundle.js" />
+    <None Remove="views\models\customerdetail.html" />
+    <None Remove="views\models\customerdetail.js" />
+    <None Remove="views\models\customers.html" />
+    <None Remove="views\models\customers.js" />
+    <None Remove="views\models\employeedetail.html" />
+    <None Remove="views\models\employeedetail.js" />
+    <None Remove="views\models\employees.html" />
+    <None Remove="views\models\employees.js" />
+    <None Remove="views\models\Footer.html" />
+    <None Remove="views\models\footer.js" />
+    <None Remove="views\models\home.html" />
+    <None Remove="views\models\home.js" />
+    <None Remove="views\models\menu.html" />
+    <None Remove="views\models\menu.js" />
+    <None Remove="views\models\orders.html" />
+    <None Remove="views\models\orders.js" />
+    <None Remove="views\models\windowsbar.html" />
+    <None Remove="views\models\windowsbar.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="views\css\admin.css" />
+    <EmbeddedResource Include="views\css\bootstrap.css" />
+    <EmbeddedResource Include="views\images\about.png" />
+    <EmbeddedResource Include="views\images\alipay.png" />
+    <EmbeddedResource Include="views\images\customer.png" />
+    <EmbeddedResource Include="views\images\employee.png" />
+    <EmbeddedResource Include="views\images\full.png" />
+    <EmbeddedResource Include="views\images\home.png" />
+    <EmbeddedResource Include="views\images\min.png" />
+    <EmbeddedResource Include="views\images\order.png" />
+    <EmbeddedResource Include="views\images\tabclose.png" />
+    <EmbeddedResource Include="views\images\wechatpay.png" />
+    <EmbeddedResource Include="views\index.html" />
+    <EmbeddedResource Include="views\js\axios.js" />
+    <EmbeddedResource Include="views\js\beetlex4axios.js" />
+    <EmbeddedResource Include="views\js\bootstrap.js" />
+    <EmbeddedResource Include="views\js\jquery.js" />
+    <EmbeddedResource Include="views\js\vue.js" />
+    <EmbeddedResource Include="views\models\about.html">
+      <Generator>VueModel</Generator>
+      <LastGenOutput>about.js</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\models\about.js">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>about.html</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\models\bundle.js" />
+    <EmbeddedResource Include="views\models\customerdetail.html">
+      <Generator>VueModel</Generator>
+      <LastGenOutput>customerdetail.js</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\models\customerdetail.js">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>customerdetail.html</DependentUpon>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\models\customers.html">
+      <Generator>VueModel</Generator>
+      <LastGenOutput>customers.js</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\models\customers.js">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>customers.html</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\models\employeedetail.html">
+      <Generator>VueModel</Generator>
+      <LastGenOutput>employeedetail.js</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\models\employeedetail.js">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>employeedetail.html</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\models\employees.html">
+      <Generator>VueModel</Generator>
+      <LastGenOutput>employees.js</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\models\employees.js">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>employees.html</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\models\Footer.html">
+      <Generator>VueModel</Generator>
+      <LastGenOutput>Footer.js</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\models\footer.js">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Footer.html</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\models\home.html">
+      <Generator>VueModel</Generator>
+      <LastGenOutput>home.js</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\models\home.js">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>home.html</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\models\menu.html">
+      <Generator>VueModel</Generator>
+      <LastGenOutput>menu.js</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\models\menu.js">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>menu.html</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\models\orders.html">
+      <Generator>VueModel</Generator>
+      <LastGenOutput>orders.js</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\models\orders.js">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>orders.html</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\models\windowsbar.html">
+      <Generator>VueModel</Generator>
+      <LastGenOutput>windowsbar.js</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\models\windowsbar.js">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>windowsbar.html</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BeetleX.FastHttpApi" Version="1.7.8" />
+    <PackageReference Include="BeetleX.FastHttpApi.Hosting" Version="1.2.0" />
+    <PackageReference Include="Northwind.Data" Version="1.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="run.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="run.sh">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

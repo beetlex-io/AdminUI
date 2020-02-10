@@ -1,0 +1,16 @@
+[
+  {
+    "outputFileName": "views/models/bundle.js",
+    "inputFiles": [
+      "views/models/windowsbar.js",
+      "views/models/orders.js",
+      "views/models/menu.js",
+      "views/models/home.js",
+      "views/models/footer.js",
+      "views/models/employees.js",
+      "views/models/employeedetail.js",
+      "views/models/customers.js",
+      "views/models/customerdetail.js"
+    ]
+  }
+]

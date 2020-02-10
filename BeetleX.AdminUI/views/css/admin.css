@@ -1,0 +1,142 @@
+﻿.menu_full {
+    padding: 4px;
+    position: fixed;
+    width: 250px;
+    box-shadow: 0px 0px 5px #d8d8d8;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    z-index: 9999;
+    background:#fff;
+}
+
+.menu_min {
+    padding: 4px;
+    position: fixed;
+    width: 50px;
+    box-shadow: 0px 0px 5px #d8d8d8;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    z-index: 9999;
+    background: #fff;
+}
+
+.menu_full ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.menu_full li > a {
+    display: block;
+    padding: 5px;
+    padding-left: 20px;
+    border-radius: 4px;
+    font-size: 12pt;
+}
+
+ .menu_full li > a > img {
+        margin-right: 20px;
+    }
+
+ .menu_full li > a:hover {
+        background: #d8d8d8;
+        text-decoration: none;
+    }
+
+.menu_min ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.menu_min li > a {
+    display: block;
+    padding: 5px;
+  
+    border-radius: 4px;
+    font-size: 12pt;
+}
+
+ .menu_min li > a:hover {
+        background: #d8d8d8;
+        text-decoration: none;
+    }
+
+.windows_bar {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    z-index: 800;
+    background: #fff;
+    overflow-x: auto;
+    overflow-y:hidden;
+    white-space:nowrap;
+}
+    .windows_bar::-webkit-scrollbar {
+        /*滚动条整体样式*/
+    
+        height: 6px;
+        margin-top:-10px;
+    }
+
+    .windows_bar::-webkit-scrollbar-thumb {
+        /*滚动条里面小方块*/
+        border-radius: 2px;
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        background: rgba(0, 156, 225, 0.75);
+       
+    }
+
+    .windows_bar::-webkit-scrollbar-track {
+        /*滚动条里面轨道*/
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        border-radius: 2px;
+        background: rgba(216, 216, 216, 0.64);
+      
+    }
+    .windows_bar ul > li > a {
+      
+        padding: 5px;
+        padding-left: 20px;
+        padding-right: 20px;
+        color: #555;
+        cursor: default;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        margin-left:2px;
+        margin-right:2px;
+        cursor:pointer;
+       
+    }
+.active
+{
+    font-weight:bold;
+}
+.nav-tabs > li.active > a {
+    border-width: 2px;
+}
+
+.folder {
+    position: fixed;
+    bottom: 0px;
+    padding-top: 10px;
+    left: 0px;
+    right: 0px;
+    z-index: 800;
+    background: #fff;
+    box-shadow: 0px 0px 3px #d8d8d8;
+}
+.main-content {
+    position: fixed;
+    border-style:solid;
+    border-width:1px;
+    border-color:#d8d8d8;
+    right:0px;
+    bottom:30px;
+    padding-left:10px;
+    padding-top:14px;
+    top:41px;
+    overflow-y: auto;
+}

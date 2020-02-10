@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link href="css/admin.css" rel="stylesheet" />
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <script src="js/axios.js"></script>
+    <script src="js/beetlex4axios.js"></script>
+    <script src="js/vue.js"></script>
+    <!--<script src="models/menu.js"></script>
+    <script src="models/windowsbar.js"></script>
+    <script src="models/footer.js"></script>
+    <script src="models/home.js"></script>
+    <script src="models/about.js"></script>
+    <script src="models/customers.js"></script>
+    <script src="models/employees.js"></script>
+    <script src="models/orders.js"></script>
+    <script src="models/employeedetail.js"></script>
+    <script src="models/customerdetail.js"></script>-->
+    <script src="models/bundle.js"></script>
+    <title>BeetleX AdminUI</title>
+</head>
+<body>
+    <div id="page">
+        <main_menu @menu_resize="OnMenuResize($event)" @openwindow="OnOpenWindow($event)"></main_menu>
+        <windows_bar :windows="windows" :full="full" :selectwindow="selectWindow.id" @openwindow="OnOpenWindow($event)" @close="OnCloseWindows($event)"></windows_bar>
+        <div class="main-content" :style="{left:(full=='max'?'50px':'250px')}">
+            <keep-alive>
+                <component :is="selectWindow.com" @openwindow="OnOpenWindow($event)" :token="selectWindow.data"></component>
+            </keep-alive>
+        </div>
+        <page_footer></page_footer>
+    </div>
+    <script>
+        var model = {
+            full: 'min',
+            windows: [],
+            selectWindow: {
+
+            },
+            selectModel: '',
+        };
+        var page = new Vue({
+            el: '#page', data: model,
+            methods: {
+                OnMenuResize: function (event) {
+                    this.full = event;
+                },
+
+                OnCloseWindows: function (e) {
+
+                    var index;
+                    for (i = 0; i < this.windows.length; i++) {
+                        if (this.windows[i].id == e.id) {
+                            index = i;
+                            break;
+                        }
+                    }
+                    if (index > 0) {
+                        this.windows.splice(index, 1);
+                        this.OnOpenWindow(this.windows[index - 1]);
+                    }
+
+                },
+
+                OnOpenWindow: function (e) {
+                    var has = false;
+                    this.windows.forEach(function (v) {
+                        if (v.id == e.id) {
+                            has = true;
+                            e.com = v.com;
+                            return;
+                        }
+                    });
+                    if (has == false) {
+                        this.windows.push(e);
+                        e.com = Vue.component(e.model);
+                    }
+                    this.selectWindow = e;
+                    this.selectModel = e.model;
+
+                },
+            }
+        });
+        page.OnOpenWindow({ id: 'home', title: '主页', model: 'models_home' })
+    </script>
+</body>
+
+</html>
