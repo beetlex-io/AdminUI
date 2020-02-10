@@ -7,7 +7,7 @@
     left: 0px;
     bottom: 0px;
     z-index: 9999;
-    background:#fff;
+    background: #fff;
 }
 
 .menu_min {
@@ -36,12 +36,12 @@
     font-size: 12pt;
 }
 
- .menu_full li > a > img {
+    .menu_full li > a > img {
         margin-right: 20px;
     }
 
- .menu_full li > a:hover {
-        background: #d8d8d8;
+    .menu_full li > a:hover {
+        background: rgba(216, 216, 216, 0.44);
         text-decoration: none;
     }
 
@@ -54,13 +54,12 @@
 .menu_min li > a {
     display: block;
     padding: 5px;
-  
     border-radius: 4px;
     font-size: 12pt;
 }
 
- .menu_min li > a:hover {
-        background: #d8d8d8;
+    .menu_min li > a:hover {
+        background: rgba(216, 216, 216, 0.44);
         text-decoration: none;
     }
 
@@ -71,14 +70,14 @@
     z-index: 800;
     background: #fff;
     overflow-x: auto;
-    overflow-y:hidden;
-    white-space:nowrap;
+    overflow-y: hidden;
+    white-space: nowrap;
 }
+
     .windows_bar::-webkit-scrollbar {
         /*滚动条整体样式*/
-    
         height: 6px;
-        margin-top:-10px;
+        margin-top: -10px;
     }
 
     .windows_bar::-webkit-scrollbar-thumb {
@@ -86,7 +85,6 @@
         border-radius: 2px;
         box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
         background: rgba(0, 156, 225, 0.75);
-       
     }
 
     .windows_bar::-webkit-scrollbar-track {
@@ -94,28 +92,46 @@
         box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
         border-radius: 2px;
         background: rgba(216, 216, 216, 0.64);
-      
     }
+
     .windows_bar ul > li > a {
-      
         padding: 5px;
         padding-left: 20px;
         padding-right: 20px;
         color: #555;
         cursor: default;
-        background-color: #fff;
-        border: 1px solid #ddd;
-        margin-left:2px;
-        margin-right:2px;
-        cursor:pointer;
-       
+        background-color: rgba(216, 216, 216, 0.24);
+        margin-left: 2px;
+        margin-right: 2px;
+        cursor: pointer;
     }
-.active
-{
-    font-weight:bold;
+        .windows_bar ul > li > a:link {
+            background-color: rgba(216, 216, 216, 0.24);
+        }
+        .windows_bar ul > li > a:hover {
+            background-color: rgba(216, 216, 216, 0.44);
+        }
+        .windows_bar ul > li > img {
+            position: relative;
+            float: right;
+            margin-top: -28px;
+            margin-right: 6px;
+            cursor: pointer;
+            width: 14px;
+        }
+
+        .windows_bar ul > li > img:hover {
+            box-shadow: inset 0 0 8px #646464;
+            border-radius: 7px;
+        }
+
+.active {
+    font-weight: bold;
 }
-.nav-tabs > li.active > a {
-    border-width: 2px;
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:link {
+    font-weight: bold;
+    background-color: #fff;
 }
 
 .folder {
@@ -128,15 +144,18 @@
     background: #fff;
     box-shadow: 0px 0px 3px #d8d8d8;
 }
+
 .main-content {
     position: fixed;
-    border-style:solid;
-    border-width:1px;
-    border-color:#d8d8d8;
-    right:0px;
-    bottom:30px;
-    padding-left:10px;
-    padding-top:14px;
-    top:41px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #d8d8d8;
+    right: 0px;
+    bottom: 40px;
+    padding-left: 10px;
+    padding-top: 14px;
+    padding-bottom: 30px;
+    top: 41px;
     overflow-y: auto;
+    
 }

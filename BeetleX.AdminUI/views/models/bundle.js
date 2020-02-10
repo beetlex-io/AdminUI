@@ -5,9 +5,10 @@ var __windowsbar="";
  __windowsbar += '    <div class="windows_bar" :style="{left:(fullStatus==\'max\'?\'60px\':\'260px\')}">';
  __windowsbar += '';
  __windowsbar += '        <ul class="nav nav-tabs" style="display:flex">';
+ __windowsbar += '           ';
  __windowsbar += '            <li v-for="item in items" role="presentation" :class="[select==item.id?\'active\':\'\']">';
  __windowsbar += '                <a href="javascript:void(0)" @click="$emit(\'openwindow\', item)">{{item.title}}</a>';
- __windowsbar += '                <img v-if="item.id!=\'home\'" @click="OnClose(item)" style="position:relative;float:right;margin-top:-30px;padding-right:4px;cursor:pointer" src="/images/tabclose.png"/>';
+ __windowsbar += '                <img v-if="item.id!=\'home\'" @click="OnClose(item)" src="/images/tabclose.png"/>';
  __windowsbar += '            </li>';
  __windowsbar += '        </ul>';
  __windowsbar += '    </div>';
@@ -163,7 +164,7 @@ var __menu="";
  __menu += '                <li><a href="javascript:void(0)"  @click="OnOpenCustomer"><img src="/images/customer.png" style="height:32px;" />客户</a></li>';
  __menu += '                <li><a href="javascript:void(0)"  @click="OnOpenOrders"><img src="/images/order.png" style="height:32px;" />订单</a></li>';
  __menu += '                <li><a href="javascript:void(0)"  @click="OnOpenEmployees"><img src="/images/employee.png" style="height:32px;" />雇员</a></li>';
- __menu += '                <!--<li><a href="javascript:void(0)"  @click="OnOpenAbout"><img src="/images/about.png" style="height:32px;" />关于</a></li>-->';
+ __menu += '                <li><a href="javascript:void(0)"  @click="OnOpenAbout"><img src="/images/about.png" style="height:32px;" />关于</a></li>';
  __menu += '            </ul>';
  __menu += '        </div>';
  __menu += '        <div v-else>';
@@ -173,7 +174,7 @@ var __menu="";
  __menu += '                <li><a href="javascript:void(0)" @click="OnOpenCustomer"><img src="/images/customer.png" style="height:32px;" /></a></li>';
  __menu += '                <li><a href="javascript:void(0)" @click="OnOpenOrders"><img src="/images/order.png" style="height:32px;" /></a></li>';
  __menu += '                <li><a href="javascript:void(0)" @click="OnOpenEmployees"><img src="/images/employee.png" style="height:32px;" /></a></li>';
- __menu += '                <!--<li><a href="javascript:void(0)" @click="OnOpenAbout"><img src="/images/about.png" style="height:32px;" /></a></li>-->';
+ __menu += '                <li><a href="javascript:void(0)" @click="OnOpenAbout"><img src="/images/about.png" style="height:32px;" /></a></li>';
  __menu += '';
  __menu += '            </ul>';
  __menu += '        </div>';
@@ -215,24 +216,56 @@ var __menu="";
 */
 var __models_home="";
  __models_home += '    <div>';
- __models_home += '        <div>';
- __models_home += '            <div style="text-align:center">';
- __models_home += '                <br />';
- __models_home += '                <h3>BeetleX.AdminUI是基于Beetlex+Vuejs+Bootstrap相结合的后台管理框架</h3>';
- __models_home += '                <br />';
- __models_home += '                <h4>Donation(捐赠)</h4>';
- __models_home += '                <a href="#" class="btn">';
- __models_home += '                    <h4 class="list-group-item-heading">Alipay(支付宝)</h4>';
- __models_home += '                    <p class="list-group-item-text">  <img style="width:100px" src="/images/alipay.png" /></p>';
- __models_home += '                </a>';
- __models_home += '                <a href="https://www.paypal.me/henryfancn?locale.x=zh_XC" class="btn" target="_blank">';
- __models_home += '                    <h4 class="list-group-item-heading">Paypal(贝宝)</h4>';
- __models_home += '                    <p class="list-group-item-text">paypal.me/henryfan</p>';
- __models_home += '                </a>';
- __models_home += '                <a href="#" class="btn">';
- __models_home += '                    <h4 class="list-group-item-heading">Wechat(微信)</h4>';
- __models_home += '                    <p class="list-group-item-text">    <img style="width:100px" src="/images/wechatpay.png" /></p>';
- __models_home += '                </a>';
+ __models_home += '        <h3 style="margin-top:0px;text-align:center">最新订单</h3>';
+ __models_home += '        <table class="table" style="margin-bottom:0px;">';
+ __models_home += '            <thead>';
+ __models_home += '                <tr>';
+ __models_home += '                    <th>OrderID</th>';
+ __models_home += '                    <th>Employee</th>';
+ __models_home += '                    <th>Customer</th>';
+ __models_home += '                    <th>OrderDate</th>';
+ __models_home += '                    <th>RequiredDate</th>';
+ __models_home += '                    <th>ShipCountry</th>';
+ __models_home += '                    <th>ShipCity</th>';
+ __models_home += '                    <th>ShipAddress</th>';
+ __models_home += '                    <th>RequiredDate</th>';
+ __models_home += '                </tr>';
+ __models_home += '            </thead>';
+ __models_home += '            <tbody>';
+ __models_home += '                <tr v-for="item in TopOrders.result.items">';
+ __models_home += '                    <td>{{item.OrderID}}</td>';
+ __models_home += '                    <td><a href="javascript:void(0)" @click="OnOpenEmployee(item)">{{item.Employee.FirstName}} {{item.Employee.LastName}}</a></td>';
+ __models_home += '                    <td><a href="javascript:void(0)" @click="OnOpenCustomer(item)">{{item.Customer.CompanyName}}</a> </td>';
+ __models_home += '                    <td>{{item.OrderDate}}</td>';
+ __models_home += '                    <td>{{item.RequiredDate}}</td>';
+ __models_home += '                    <td>{{item.ShipCountry}}</td>';
+ __models_home += '                    <td>{{item.ShipCity}}</td>';
+ __models_home += '                    <td>{{item.ShipAddress}}</td>';
+ __models_home += '                    <td>{{item.ShipAddress}}</td>';
+ __models_home += '                </tr>';
+ __models_home += '                <tr>';
+ __models_home += '                    <td colspan="9" style="text-align:right;">';
+ __models_home += '                        <a href="javascript:void(0)" @click="$emit(\'openwindow\', { id: \'orders\', title: \'订单列表\', model: \'models_orders\' })">更多...</a>';
+ __models_home += '                    </td>';
+ __models_home += '                </tr>';
+ __models_home += '            </tbody>';
+ __models_home += '        </table>';
+ __models_home += '        <h3 style="margin-top:0px;text-align:center;">销量走势</h3>';
+ __models_home += '        <div id="timeline" style="height:200px;">';
+ __models_home += '';
+ __models_home += '        </div>';
+ __models_home += '        <div class="row" style="width:98%;padding-top:20px;">';
+ __models_home += '            <div class="col-lg-6">';
+ __models_home += '                <h3 style="margin-top:0px;text-align:center;">雇员销售比例</h3>';
+ __models_home += '                <div id="employeePie" style="height:400px;">';
+ __models_home += '';
+ __models_home += '                </div>';
+ __models_home += '            </div>';
+ __models_home += '            <div class="col-lg-6">';
+ __models_home += '                <h3 style="margin-top:0px;text-align:center;">客户比例</h3>';
+ __models_home += '                <div id="customerPie" style="height:400px;">';
+ __models_home += '';
+ __models_home += '                </div>';
  __models_home += '            </div>';
  __models_home += '        </div>';
  __models_home += '    </div>';
@@ -240,13 +273,149 @@ var __models_home="";
     Vue.component('models_home', {
         data: function () {
             return {
-               
+                TopOrders: new beetlexAction("/orders", { index: 0, size: 5 }, { pages: 0, items: [] }),
+                TimeStatis: new beetlexAction("/TimeStatis"),
+                CustomerStatis: new beetlexAction("/CustomerStatis"),
+                EmployeeStatis: new beetlexAction("/EmployeeStatis")
             }
         },
         methods: {
-          
+            OnOpenCustomer: function (item) {
+                this.$emit('openwindow',
+                    {
+                        id: 'cust' + item.Customer.CustomerID,
+                        title: '客户:' + item.Customer.CompanyName,
+                        model: 'models_customerdetail',
+                        data: { id: item.Customer.CustomerID }
+                    }
+                )
+            },
+            OnOpenEmployee: function (item) {
+                this.$emit('openwindow',
+                    {
+                        id: 'emp' + item.Employee.EmployeeID,
+                        title: '雇员:' + item.Employee.FirstName + ' ' + item.Employee.LastName,
+                        model: 'models_employeedetail',
+                        data: { id: item.Employee.EmployeeID }
+                    }
+                )
+            }
         },
         template: __models_home,
+        mounted: function () {
+
+            this.TimeStatis.requested = function (r) {
+                var option = {
+                    grid: {
+                        top: 10,
+                        bottom: 20,
+                        right: 20,
+                        left: 60
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: {
+                            type: 'cross',
+                            label: {
+                                backgroundColor: '#6a7985'
+                            }
+                        }
+                    },
+                    xAxis: {
+                        type: 'category',
+                        data: []
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [{
+                        data: [],
+                        type: 'line',
+                        areaStyle: {},
+                        smooth: true
+                    }]
+                };
+                r.forEach(function (v) {
+                    option.xAxis.data.push(v.Key);
+                    option.series[0].data.push(v.Value);
+                });
+                var dom = document.getElementById("timeline");
+                var myChart = echarts.init(dom);
+                myChart.setOption(option, true);
+            };
+            this.EmployeeStatis.requested = function (r) {
+                var option = {
+                    grid: {
+                        top: 0,
+                        bottom: 0,
+                        right: 20,
+                        left: 20
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: '{a} <br/>{b} : {c} ({d}%)'
+                    },
+                    series: [
+                        {
+                            name: '雇员',
+                            type: 'pie',
+                            radius: '55%',
+                            center: ['50%', '50%'],
+                            data: r,
+                            emphasis: {
+                                itemStyle: {
+                                    shadowBlur: 10,
+                                    shadowOffsetX: 0,
+                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                }
+                            }
+                        }
+                    ]
+                };
+                var dom = document.getElementById("employeePie");
+                var myChart = echarts.init(dom);
+                myChart.setOption(option, true);
+            };
+
+            this.CustomerStatis.requested = function (r) {
+                var option = {
+                    grid: {
+                        top: 0,
+                        bottom: 0,
+                        right: 20,
+                        left: 20
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: '{a} <br/>{b} : {c} ({d}%)'
+                    },
+                    series: [
+                        {
+                            name: '客户',
+                            type: 'pie',
+                            radius: '55%',
+                            center: ['50%', '50%'],
+                            data: r,
+                            emphasis: {
+                                itemStyle: {
+                                    shadowBlur: 10,
+                                    shadowOffsetX: 0,
+                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                }
+                            }
+                        }
+                    ]
+                };
+                var dom = document.getElementById("customerPie");
+                var myChart = echarts.init(dom);
+                myChart.setOption(option, true);
+            };
+
+            this.TopOrders.get();
+            this.TimeStatis.get();
+            this.EmployeeStatis.get();
+            this.CustomerStatis.get();
+        }
     })
 
 /*
@@ -635,4 +804,44 @@ var __models_customerdetail="";
             this.GetDetail.get({ id: this.token.id });
         },
         template: __models_customerdetail,
+    })
+
+/*
+* Generate js with vuejs Copyright © ikende.com 2019 email:henryfan@msn.com 
+*/
+var __models_about="";
+ __models_about += '    <div>';
+ __models_about += '        <div>';
+ __models_about += '            <div style="text-align:center">';
+ __models_about += '                <br />';
+ __models_about += '                <h3>BeetleX.AdminUI是基于Beetlex+Vuejs+Bootstrap相结合的后台管理框架</h3>';
+ __models_about += '                <p><a href="https://github.com/IKende/AdminUI" target="_blank">https://github.com/IKende/AdminUI</a></p>';
+ __models_about += '                <br />';
+ __models_about += '                <h4>Donation(捐赠)</h4>';
+ __models_about += '                <a href="#" class="btn">';
+ __models_about += '                    <h4 class="list-group-item-heading">Alipay(支付宝)</h4>';
+ __models_about += '                    <p class="list-group-item-text">  <img style="width:100px" src="/images/alipay.png" /></p>';
+ __models_about += '                </a>';
+ __models_about += '                <a href="https://www.paypal.me/henryfancn?locale.x=zh_XC" class="btn" target="_blank">';
+ __models_about += '                    <h4 class="list-group-item-heading">Paypal(贝宝)</h4>';
+ __models_about += '                    <p class="list-group-item-text">paypal.me/henryfan</p>';
+ __models_about += '                </a>';
+ __models_about += '                <a href="#" class="btn">';
+ __models_about += '                    <h4 class="list-group-item-heading">Wechat(微信)</h4>';
+ __models_about += '                    <p class="list-group-item-text">    <img style="width:100px" src="/images/wechatpay.png" /></p>';
+ __models_about += '                </a>';
+ __models_about += '            </div>';
+ __models_about += '        </div>';
+ __models_about += '    </div>';
+
+    Vue.component('models_about', {
+        data: function () {
+            return {
+
+            }
+        },
+        methods: {
+
+        },
+        template: __models_about,
     })

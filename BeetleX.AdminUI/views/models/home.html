@@ -1,23 +1,55 @@
 ﻿<template id="__models_home">
     <div>
-        <div>
-            <div style="text-align:center">
-                <br />
-                <h3>BeetleX.AdminUI是基于Beetlex+Vuejs+Bootstrap相结合的后台管理框架</h3>
-                <br />
-                <h4>Donation(捐赠)</h4>
-                <a href="#" class="btn">
-                    <h4 class="list-group-item-heading">Alipay(支付宝)</h4>
-                    <p class="list-group-item-text">  <img style="width:100px" src="/images/alipay.png" /></p>
-                </a>
-                <a href="https://www.paypal.me/henryfancn?locale.x=zh_XC" class="btn" target="_blank">
-                    <h4 class="list-group-item-heading">Paypal(贝宝)</h4>
-                    <p class="list-group-item-text">paypal.me/henryfan</p>
-                </a>
-                <a href="#" class="btn">
-                    <h4 class="list-group-item-heading">Wechat(微信)</h4>
-                    <p class="list-group-item-text">    <img style="width:100px" src="/images/wechatpay.png" /></p>
-                </a>
+        <h3 style="margin-top:0px;text-align:center">最新订单</h3>
+        <table class="table" style="margin-bottom:0px;">
+            <thead>
+                <tr>
+                    <th>OrderID</th>
+                    <th>Employee</th>
+                    <th>Customer</th>
+                    <th>OrderDate</th>
+                    <th>RequiredDate</th>
+                    <th>ShipCountry</th>
+                    <th>ShipCity</th>
+                    <th>ShipAddress</th>
+                    <th>RequiredDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in TopOrders.result.items">
+                    <td>{{item.OrderID}}</td>
+                    <td><a href="javascript:void(0)" @click="OnOpenEmployee(item)">{{item.Employee.FirstName}} {{item.Employee.LastName}}</a></td>
+                    <td><a href="javascript:void(0)" @click="OnOpenCustomer(item)">{{item.Customer.CompanyName}}</a> </td>
+                    <td>{{item.OrderDate}}</td>
+                    <td>{{item.RequiredDate}}</td>
+                    <td>{{item.ShipCountry}}</td>
+                    <td>{{item.ShipCity}}</td>
+                    <td>{{item.ShipAddress}}</td>
+                    <td>{{item.ShipAddress}}</td>
+                </tr>
+                <tr>
+                    <td colspan="9" style="text-align:right;">
+                        <a href="javascript:void(0)" @click="$emit('openwindow', { id: 'orders', title: '订单列表', model: 'models_orders' })">更多...</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 style="margin-top:0px;text-align:center;">销量走势</h3>
+        <div id="timeline" style="height:200px;">
+
+        </div>
+        <div class="row" style="width:98%;padding-top:20px;">
+            <div class="col-lg-6">
+                <h3 style="margin-top:0px;text-align:center;">雇员销售比例</h3>
+                <div id="employeePie" style="height:400px;">
+
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h3 style="margin-top:0px;text-align:center;">客户比例</h3>
+                <div id="customerPie" style="height:400px;">
+
+                </div>
             </div>
         </div>
     </div>
@@ -26,12 +58,148 @@
     Vue.component('models_home', {
         data: function () {
             return {
-               
+                TopOrders: new beetlexAction("/orders", { index: 0, size: 5 }, { pages: 0, items: [] }),
+                TimeStatis: new beetlexAction("/TimeStatis"),
+                CustomerStatis: new beetlexAction("/CustomerStatis"),
+                EmployeeStatis: new beetlexAction("/EmployeeStatis")
             }
         },
         methods: {
-          
+            OnOpenCustomer: function (item) {
+                this.$emit('openwindow',
+                    {
+                        id: 'cust' + item.Customer.CustomerID,
+                        title: '客户:' + item.Customer.CompanyName,
+                        model: 'models_customerdetail',
+                        data: { id: item.Customer.CustomerID }
+                    }
+                )
+            },
+            OnOpenEmployee: function (item) {
+                this.$emit('openwindow',
+                    {
+                        id: 'emp' + item.Employee.EmployeeID,
+                        title: '雇员:' + item.Employee.FirstName + ' ' + item.Employee.LastName,
+                        model: 'models_employeedetail',
+                        data: { id: item.Employee.EmployeeID }
+                    }
+                )
+            }
         },
         template: __models_home,
+        mounted: function () {
+
+            this.TimeStatis.requested = function (r) {
+                var option = {
+                    grid: {
+                        top: 10,
+                        bottom: 20,
+                        right: 20,
+                        left: 60
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: {
+                            type: 'cross',
+                            label: {
+                                backgroundColor: '#6a7985'
+                            }
+                        }
+                    },
+                    xAxis: {
+                        type: 'category',
+                        data: []
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [{
+                        data: [],
+                        type: 'line',
+                        areaStyle: {},
+                        smooth: true
+                    }]
+                };
+                r.forEach(function (v) {
+                    option.xAxis.data.push(v.Key);
+                    option.series[0].data.push(v.Value);
+                });
+                var dom = document.getElementById("timeline");
+                var myChart = echarts.init(dom);
+                myChart.setOption(option, true);
+            };
+            this.EmployeeStatis.requested = function (r) {
+                var option = {
+                    grid: {
+                        top: 0,
+                        bottom: 0,
+                        right: 20,
+                        left: 20
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: '{a} <br/>{b} : {c} ({d}%)'
+                    },
+                    series: [
+                        {
+                            name: '雇员',
+                            type: 'pie',
+                            radius: '55%',
+                            center: ['50%', '50%'],
+                            data: r,
+                            emphasis: {
+                                itemStyle: {
+                                    shadowBlur: 10,
+                                    shadowOffsetX: 0,
+                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                }
+                            }
+                        }
+                    ]
+                };
+                var dom = document.getElementById("employeePie");
+                var myChart = echarts.init(dom);
+                myChart.setOption(option, true);
+            };
+
+            this.CustomerStatis.requested = function (r) {
+                var option = {
+                    grid: {
+                        top: 0,
+                        bottom: 0,
+                        right: 20,
+                        left: 20
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: '{a} <br/>{b} : {c} ({d}%)'
+                    },
+                    series: [
+                        {
+                            name: '客户',
+                            type: 'pie',
+                            radius: '55%',
+                            center: ['50%', '50%'],
+                            data: r,
+                            emphasis: {
+                                itemStyle: {
+                                    shadowBlur: 10,
+                                    shadowOffsetX: 0,
+                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                }
+                            }
+                        }
+                    ]
+                };
+                var dom = document.getElementById("customerPie");
+                var myChart = echarts.init(dom);
+                myChart.setOption(option, true);
+            };
+
+            this.TopOrders.get();
+            this.TimeStatis.get();
+            this.EmployeeStatis.get();
+            this.CustomerStatis.get();
+        }
     })
 </script>

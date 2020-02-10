@@ -22,6 +22,7 @@
     <None Remove="views\js\axios.js" />
     <None Remove="views\js\beetlex4axios.js" />
     <None Remove="views\js\bootstrap.js" />
+    <None Remove="views\js\echarts.js" />
     <None Remove="views\js\jquery.js" />
     <None Remove="views\js\vue.js" />
     <None Remove="views\models\about.html" />
@@ -64,6 +65,7 @@
     <EmbeddedResource Include="views\js\axios.js" />
     <EmbeddedResource Include="views\js\beetlex4axios.js" />
     <EmbeddedResource Include="views\js\bootstrap.js" />
+    <EmbeddedResource Include="views\js\echarts.js" />
     <EmbeddedResource Include="views\js\jquery.js" />
     <EmbeddedResource Include="views\js\vue.js" />
     <EmbeddedResource Include="views\models\about.html">

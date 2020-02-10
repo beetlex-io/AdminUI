@@ -2,9 +2,10 @@
     <div class="windows_bar" :style="{left:(fullStatus=='max'?'60px':'260px')}">
 
         <ul class="nav nav-tabs" style="display:flex">
+           
             <li v-for="item in items" role="presentation" :class="[select==item.id?'active':'']">
                 <a href="javascript:void(0)" @click="$emit('openwindow', item)">{{item.title}}</a>
-                <img v-if="item.id!='home'" @click="OnClose(item)" style="position:relative;float:right;margin-top:-30px;padding-right:4px;cursor:pointer" src="/images/tabclose.png"/>
+                <img v-if="item.id!='home'" @click="OnClose(item)" src="/images/tabclose.png"/>
             </li>
         </ul>
     </div>

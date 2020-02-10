@@ -22,6 +22,23 @@ namespace BeetleX.AdminUI
             };
         }
 
+        public object CustomerStatis()
+        {
+            return (from b in (from a in DataHelper.Defalut.Orders
+                               group a by GetCustomerFullName(a.CustomerID) into b
+                               select new { name = b.Key, value = b.Count() })
+                    orderby b.value descending
+                    select b).Take(20);
+                   
+        }
+
+        public object EmployeeStatis()
+        {
+            return from a in DataHelper.Defalut.Orders
+                   group a by GetEmployeeFullName(a.EmployeeID) into b
+                   select new { name = b.Key, value = b.Count() };
+        }
+
         public object GetCustomerDetail(string id)
         {
             return new
@@ -47,6 +64,14 @@ namespace BeetleX.AdminUI
                 employees = (from a in DataHelper.Defalut.Employees select new { a.FirstName, a.LastName, a.EmployeeID }),
                 customers = (from a in DataHelper.Defalut.Customers select new { a.CompanyName, a.CustomerID })
             };
+        }
+
+        public object TimeStatis()
+        {
+            return from a in DataHelper.Defalut.Orders
+                   group a by a.OrderDate.ToString("yyyy/MM") into b
+                   select new { b.Key, Value = b.Count() };
+
         }
 
         public object Orders(int index, int employeeid, string customerid, int size = 20)
@@ -82,10 +107,23 @@ namespace BeetleX.AdminUI
             };
         }
 
+
+        private string GetEmployeeFullName(int id)
+        {
+            var item = DataHelper.Defalut.Employees.FirstOrDefault(p => p.EmployeeID == id);
+            return $"{item?.FirstName} {item?.LastName}";
+        }
+
         private object GetEmployeeName(int id)
         {
             var item = DataHelper.Defalut.Employees.FirstOrDefault(p => p.EmployeeID == id);
             return new { item?.EmployeeID, item?.FirstName, item?.LastName };
+        }
+
+        private string GetCustomerFullName(string id)
+        {
+            var item = DataHelper.Defalut.Customers.FirstOrDefault(p => p.CustomerID == id);
+            return item?.CompanyName;
         }
 
         private object GetCustomerName(string id)

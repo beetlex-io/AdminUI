@@ -10,7 +10,8 @@
       "views/models/employees.js",
       "views/models/employeedetail.js",
       "views/models/customers.js",
-      "views/models/customerdetail.js"
+      "views/models/customerdetail.js",
+      "views/models/about.js"
     ]
   }
 ]
