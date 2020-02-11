@@ -34,14 +34,7 @@
         },
         methods: {
             OnOpen: function (item) {
-                this.$emit('openwindow',
-                    {
-                        id: 'emp' + item.EmployeeID,
-                        title: '雇员:' + item.FirstName + ' ' + item.LastName ,
-                        model: 'models_employeedetail',
-                        data: { id: item.EmployeeID }
-                    }
-                )
+                this.$open('emp' + item.EmployeeID, '雇员:' + item.FirstName + ' ' + item.LastName, 'models_employeedetail', { id: item.EmployeeID });
             }
         },
         mounted: function () {

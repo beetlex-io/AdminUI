@@ -3,7 +3,6 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/admin.css" rel="stylesheet" />
     <script src="js/axios.js"></script>
@@ -35,6 +34,9 @@
         <page_footer></page_footer>
     </div>
     <script>
+        Vue.prototype.$open = function (id, title, model, data) {
+            this.$emit('openwindow', { id: id, title: title, model: model, data: data });
+        };
         var model = {
             full: 'min',
             windows: [],
@@ -51,7 +53,7 @@
                 },
 
                 OnCloseWindows: function (e) {
-                    var index=-1;
+                    var index = -1;
                     for (i = 0; i < this.windows.length; i++) {
                         if (this.windows[i].id == e.id) {
                             index = i;

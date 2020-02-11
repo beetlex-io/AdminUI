@@ -38,19 +38,19 @@
                 this.$emit('menu_resize', value)
             },
             OnOpenHome: function () {
-                this.$emit('openwindow', { id: 'home', title: '主页', model: 'models_home' });
+                this.$open('home', '主页', 'models_home');
             },
             OnOpenCustomer: function () {
-                this.$emit('openwindow', { id: 'customers', title: '客户列表', model: 'models_customers' });
+                this.$open('customers', '客户列表', 'models_customers');
             },
             OnOpenEmployees: function () {
-                this.$emit('openwindow', { id: 'employees', title: '雇员列表', model: 'models_employees' });
+                this.$open('employees', '雇员列表', 'models_employees');
             },
             OnOpenOrders: function () {
-                this.$emit('openwindow', { id: 'orders', title: '订单列表', model: 'models_orders' });
+                this.$open('orders', '订单列表', 'models_orders');
             },
             OnOpenAbout: function () {
-                this.$emit('openwindow', { id: 'about', title: '关于', model: 'models_about' });
+                this.$open('about', '关于', 'models_about');
             },
         },
         template: __menu,

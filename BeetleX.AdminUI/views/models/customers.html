@@ -40,14 +40,7 @@
         },
         methods: {
             OnOpen: function (item) {
-                this.$emit('openwindow',
-                    {
-                        id: 'cust' + item.CustomerID,
-                        title: '客户:' + item.CompanyName,
-                        model: 'models_customerdetail',
-                        data: { id: item.CustomerID }
-                    }
-                )
+                this.$open('cust' + item.CustomerID, '客户:' + item.CompanyName, 'models_customerdetail', { id: item.CustomerID });
             }
         },
         mounted: function () {

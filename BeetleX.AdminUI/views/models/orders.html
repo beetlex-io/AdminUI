@@ -67,24 +67,10 @@
         },
         methods: {
             OnOpenCustomer: function (item) {
-                this.$emit('openwindow',
-                    {
-                        id: 'cust' + item.Customer.CustomerID,
-                        title: '客户:' + item.Customer.CompanyName,
-                        model: 'models_customerdetail',
-                        data: { id: item.Customer.CustomerID }
-                    }
-                )
+                this.$open('cust' + item.Customer.CustomerID, '客户:' + item.Customer.CompanyName, 'models_customerdetail', { id: item.Customer.CustomerID });
             },
             OnOpenEmployee: function (item) {
-                this.$emit('openwindow',
-                    {
-                        id: 'emp' + item.Employee.EmployeeID,
-                        title: '雇员:' + item.Employee.FirstName + ' ' + item.Employee.LastName,
-                        model: 'models_employeedetail',
-                        data: { id: item.Employee.EmployeeID }
-                    }
-                )
+                this.$open('emp' + item.Employee.EmployeeID, '雇员:' + item.Employee.FirstName + ' ' + item.Employee.LastName, 'models_employeedetail', { id: item.Employee.EmployeeID });
             }
         },
         mounted: function () {
