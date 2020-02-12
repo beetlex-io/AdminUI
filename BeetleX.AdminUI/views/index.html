@@ -41,7 +41,6 @@
             full: 'min',
             windows: [],
             selectWindow: {
-
             },
             selectModel: '',
         };
@@ -73,7 +72,6 @@
                 },
 
                 OnOpenWindow: function (e) {
-                    var has = false;
                     var items = [];
                     items.push(e);
                     for (i = 0; i < this.windows.length; i++) {
@@ -84,7 +82,6 @@
                     this.windows = items;
                     this.selectWindow = e;
                     this.selectModel = e.model;
-
                 },
             }
         });

@@ -1,26 +1,42 @@
 ﻿<template id="__menu">
     <div :class="[full=='min'?'menu_full':'menu_min']">
-        <div v-if="full=='min'">
-            <h3 style="margin-top:10px;margin-right:-5px;padding-left:20px;">BeetleX.AdminUI</h3>
-            <a href="javascript:void(0)" @click="OnResizeMenu('max')" style="float:right;margin-top:-35px;"><img style="width:24px;" src="/images/min.png" /></a>
-            <hr style="padding:4px;margin:0px;" />
+        <div>
+            <h3 v-if="full=='min'" style="margin-top:10px;margin-right:-5px;padding-left:20px;">BeetleX.AdminUI</h3>
+            <a v-if="full=='min'" href="javascript:void(0)" @click="OnResizeMenu('max')" style="float:right;margin-top:-35px;"><img style="width:24px;" src="/images/min.png" /></a>
+            <hr v-if="full=='min'" style="padding:4px;margin:0px;" />
             <ul>
-                <li><a href="javascript:void(0)"  @click="OnOpenHome"><img src="/images/home.png" style="height:32px;" />主页</a></li>
-                <li><a href="javascript:void(0)"  @click="OnOpenCustomer"><img src="/images/customer.png" style="height:32px;" />客户</a></li>
-                <li><a href="javascript:void(0)"  @click="OnOpenOrders"><img src="/images/order.png" style="height:32px;" />订单</a></li>
-                <li><a href="javascript:void(0)"  @click="OnOpenEmployees"><img src="/images/employee.png" style="height:32px;" />雇员</a></li>
-                <li><a href="javascript:void(0)"  @click="OnOpenAbout"><img src="/images/about.png" style="height:32px;" />关于</a></li>
-            </ul>
-        </div>
-        <div v-else>
-            <ul>
-                <li><a href="javascript:void(0)" @click="OnResizeMenu('min')"><img src="/images/full.png" style="height:32px;" /></a></li>
-                <li><a href="javascript:void(0)" @click="OnOpenHome"><img src="/images/home.png" style="height:32px;" /></a></li>
-                <li><a href="javascript:void(0)" @click="OnOpenCustomer"><img src="/images/customer.png" style="height:32px;" /></a></li>
-                <li><a href="javascript:void(0)" @click="OnOpenOrders"><img src="/images/order.png" style="height:32px;" /></a></li>
-                <li><a href="javascript:void(0)" @click="OnOpenEmployees"><img src="/images/employee.png" style="height:32px;" /></a></li>
-                <li><a href="javascript:void(0)" @click="OnOpenAbout"><img src="/images/about.png" style="height:32px;" /></a></li>
-
+                <li v-if="full!='min'"><a href="javascript:void(0)" @click="OnResizeMenu('min')">
+                    <img src="/images/full.png" style="height:32px;" /></a></li>
+                <li>
+                    <a href="javascript:void(0)" @click="OnOpenHome">
+                        <img src="/images/home.png" style="height:32px;" />
+                        <span v-if="full=='min'">主页</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" @click="OnOpenCustomer">
+                        <img src="/images/customer.png" style="height:32px;" />
+                        <span v-if="full=='min'">客户</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" @click="OnOpenOrders">
+                        <img src="/images/order.png" style="height:32px;" />
+                        <span v-if="full=='min'">订单</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" @click="OnOpenEmployees">
+                        <img src="/images/employee.png" style="height:32px;" />
+                        <span v-if="full=='min'">雇员</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" @click="OnOpenAbout">
+                        <img src="/images/about.png" style="height:32px;" />
+                        <span v-if="full=='min'">关于</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
