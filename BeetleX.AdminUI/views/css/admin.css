@@ -76,7 +76,7 @@
 
     .windows_bar::-webkit-scrollbar {
         /*滚动条整体样式*/
-        height: 6px;
+        height: 4px;
         margin-top: -10px;
     }
 
@@ -93,17 +93,23 @@
         border-radius: 2px;
         background: rgba(216, 216, 216, 0.64);
     }
-
-    .windows_bar ul > li > a {
-        padding: 5px;
-        padding-left: 20px;
-        padding-right: 20px;
-        color: #555;
-        cursor: default;
-        background-color: rgba(216, 216, 216, 0.24);
-        margin-left: 2px;
-        margin-right: 2px;
-        cursor: pointer;
+    .windows_bar ul > li {
+        
+    }
+        .windows_bar ul > li > a {
+            padding: 5px;
+            padding-left: 20px;
+            padding-right: 20px;
+            color: #555;
+            cursor: default;
+            background-color: rgba(216, 216, 216, 0.24);
+            margin-left: 2px;
+            margin-right: 2px;
+            cursor: pointer;
+        }
+    .windows_bar > ul > li > a > span {
+        overflow: hidden;
+        display: block;
     }
         .windows_bar ul > li > a:link {
             background-color: rgba(216, 216, 216, 0.24);
@@ -118,6 +124,7 @@
             margin-right: 6px;
             cursor: pointer;
             width: 14px;
+            background-color:transparent;
         }
 
         .windows_bar ul > li > img:hover {

@@ -73,13 +73,14 @@
 
                 OnOpenWindow: function (e) {
                     var items = [];
-                    items.push(e);
+                    var has = false;
                     for (i = 0; i < this.windows.length; i++) {
                         var item = this.windows[i];
-                        if (item.id != e.id)
-                            items.push(item);
+                        if (item.id == e.id)
+                            has = true;
                     }
-                    this.windows = items;
+                    if (has == false)
+                        this.windows.push(e);
                     this.selectWindow = e;
                     this.selectModel = e.model;
                 },
