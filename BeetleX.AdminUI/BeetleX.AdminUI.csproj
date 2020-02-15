@@ -6,8 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="views\css\admin.css" />
     <None Remove="views\css\bootstrap.css" />
+    <None Remove="views\css\bootstrapadmin.css" />
+    <None Remove="views\fonts\glyphicons-halflings-regular.eot" />
+    <None Remove="views\fonts\glyphicons-halflings-regular.svg" />
+    <None Remove="views\fonts\glyphicons-halflings-regular.ttf" />
+    <None Remove="views\fonts\glyphicons-halflings-regular.woff" />
+    <None Remove="views\fonts\glyphicons-halflings-regular.woff2" />
     <None Remove="views\images\about.png" />
     <None Remove="views\images\alipay.png" />
     <None Remove="views\images\customer.png" />
@@ -16,6 +21,7 @@
     <None Remove="views\images\home.png" />
     <None Remove="views\images\min.png" />
     <None Remove="views\images\order.png" />
+    <None Remove="views\images\panelresize.png" />
     <None Remove="views\images\tabclose.png" />
     <None Remove="views\images\wechatpay.png" />
     <None Remove="views\index.html" />
@@ -27,30 +33,44 @@
     <None Remove="views\js\vue.js" />
     <None Remove="views\models\about.html" />
     <None Remove="views\models\about.js" />
-    <None Remove="views\models\bundle.js" />
     <None Remove="views\models\customerdetail.html" />
     <None Remove="views\models\customerdetail.js" />
     <None Remove="views\models\customers.html" />
     <None Remove="views\models\customers.js" />
+    <None Remove="views\models\customerspie.html" />
+    <None Remove="views\models\customerspie.js" />
     <None Remove="views\models\employeedetail.html" />
     <None Remove="views\models\employeedetail.js" />
     <None Remove="views\models\employees.html" />
     <None Remove="views\models\employees.js" />
+    <None Remove="views\models\employeespie.html" />
+    <None Remove="views\models\employeespie.js" />
     <None Remove="views\models\Footer.html" />
     <None Remove="views\models\footer.js" />
     <None Remove="views\models\home.html" />
     <None Remove="views\models\home.js" />
     <None Remove="views\models\menu.html" />
     <None Remove="views\models\menu.js" />
+    <None Remove="views\models\monthline.html" />
+    <None Remove="views\models\monthline.js" />
+    <None Remove="views\models\neworders.html" />
+    <None Remove="views\models\neworders.js" />
     <None Remove="views\models\orders.html" />
     <None Remove="views\models\orders.js" />
     <None Remove="views\models\windowsbar.html" />
     <None Remove="views\models\windowsbar.js" />
+    <None Remove="views\models\_models.html" />
+    <None Remove="views\models\_models.js" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="views\css\admin.css" />
+    <EmbeddedResource Include="views\css\bootstrapadmin.css" />
     <EmbeddedResource Include="views\css\bootstrap.css" />
+    <EmbeddedResource Include="views\fonts\glyphicons-halflings-regular.eot" />
+    <EmbeddedResource Include="views\fonts\glyphicons-halflings-regular.svg" />
+    <EmbeddedResource Include="views\fonts\glyphicons-halflings-regular.ttf" />
+    <EmbeddedResource Include="views\fonts\glyphicons-halflings-regular.woff" />
+    <EmbeddedResource Include="views\fonts\glyphicons-halflings-regular.woff2" />
     <EmbeddedResource Include="views\images\about.png" />
     <EmbeddedResource Include="views\images\alipay.png" />
     <EmbeddedResource Include="views\images\customer.png" />
@@ -59,6 +79,7 @@
     <EmbeddedResource Include="views\images\home.png" />
     <EmbeddedResource Include="views\images\min.png" />
     <EmbeddedResource Include="views\images\order.png" />
+    <EmbeddedResource Include="views\images\panelresize.png" />
     <EmbeddedResource Include="views\images\tabclose.png" />
     <EmbeddedResource Include="views\images\wechatpay.png" />
     <EmbeddedResource Include="views\index.html" />
@@ -77,7 +98,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>about.html</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\models\bundle.js" />
     <EmbeddedResource Include="views\models\customerdetail.html">
       <Generator>VueModel</Generator>
       <LastGenOutput>customerdetail.js</LastGenOutput>
@@ -97,6 +117,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>customers.html</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="views\models\customerspie.html">
+      <Generator>VueModel</Generator>
+      <LastGenOutput>customerspie.js</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\models\customerspie.js">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>customerspie.html</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="views\models\employeedetail.html">
       <Generator>VueModel</Generator>
       <LastGenOutput>employeedetail.js</LastGenOutput>
@@ -114,6 +143,15 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>employees.html</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\models\employeespie.html">
+      <Generator>VueModel</Generator>
+      <LastGenOutput>employeespie.js</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\models\employeespie.js">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>employeespie.html</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\models\Footer.html">
       <Generator>VueModel</Generator>
@@ -142,6 +180,24 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>menu.html</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="views\models\monthline.html">
+      <Generator>VueModel</Generator>
+      <LastGenOutput>monthline.js</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\models\monthline.js">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>monthline.html</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\models\neworders.html">
+      <Generator>VueModel</Generator>
+      <LastGenOutput>neworders.js</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\models\neworders.js">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>neworders.html</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="views\models\orders.html">
       <Generator>VueModel</Generator>
       <LastGenOutput>orders.js</LastGenOutput>
@@ -160,6 +216,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>windowsbar.html</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="views\models\_models.html">
+      <Generator>VueModel</Generator>
+      <LastGenOutput>_models.js</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\models\_models.js">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>_models.html</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
@@ -175,6 +240,17 @@
     <None Update="run.sh">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="views\models\panel.html">
+      <Generator>VueModel</Generator>
+      <LastGenOutput>panel.js</LastGenOutput>
+    </None>
+    <None Update="views\models\panel.js">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>panel.html</DependentUpon>
+    </None>
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties bundleconfig_1json__JSONSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>

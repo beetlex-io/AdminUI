@@ -58,6 +58,7 @@
 </template>
 <script>
     Vue.component('models_orders', {
+        
         data: function () {
             return {
                 GetOrders: new beetlexAction("/Orders", { index: 0, employeeid: 0, customerid: '' }, []),

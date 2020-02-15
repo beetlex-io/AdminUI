@@ -1,39 +1,41 @@
 ﻿<template id="__menu">
     <div :class="[full=='min'?'menu_full':'menu_min']">
         <div>
-            <h3 v-if="full=='min'" style="margin-top:10px;margin-right:-5px;padding-left:20px;">BeetleX.AdminUI</h3>
-            <a v-if="full=='min'" href="javascript:void(0)" @click="OnResizeMenu('max')" style="float:right;margin-top:-35px;"><img style="width:24px;" src="/images/min.png" /></a>
+            <h3 v-if="full=='min'" style="margin-top:10px;margin-right:-5px;padding-left:40px;font-size:11pt;"><a href="http://beetlex.io" target="_blank">BeetleX.AdminUI</a></h3>
+            <a v-if="full=='min'" href="javascript:void(0)" @click="OnResizeMenu('max')" style="float:right;margin-top:-30px;">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            </a>
             <hr v-if="full=='min'" style="padding:4px;margin:0px;" />
             <ul>
                 <li v-if="full!='min'"><a href="javascript:void(0)" @click="OnResizeMenu('min')">
-                    <img src="/images/full.png" style="height:32px;" /></a></li>
+                                           <i class="glyphicon glyphicon-chevron-right" aria-hidden="true"></i></a></li>
                 <li>
                     <a href="javascript:void(0)" @click="OnOpenHome">
-                        <img src="/images/home.png" style="height:32px;" />
+                        <i class="glyphicon glyphicon-home" aria-hidden="true"></i>
                         <span v-if="full=='min'">主页</span>
                     </a>
                 </li>
                 <li>
                     <a href="javascript:void(0)" @click="OnOpenCustomer">
-                        <img src="/images/customer.png" style="height:32px;" />
+                        <i class="glyphicon glyphicon-user" aria-hidden="true"></i>
                         <span v-if="full=='min'">客户</span>
                     </a>
                 </li>
                 <li>
                     <a href="javascript:void(0)" @click="OnOpenOrders">
-                        <img src="/images/order.png" style="height:32px;" />
+                        <i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
                         <span v-if="full=='min'">订单</span>
                     </a>
                 </li>
                 <li>
                     <a href="javascript:void(0)" @click="OnOpenEmployees">
-                        <img src="/images/employee.png" style="height:32px;" />
+                        <i class="glyphicon glyphicon-user" aria-hidden="true"></i>
                         <span v-if="full=='min'">雇员</span>
                     </a>
                 </li>
                 <li>
                     <a href="javascript:void(0)" @click="OnOpenAbout">
-                        <img src="/images/about.png" style="height:32px;" />
+                        <i class="glyphicon glyphicon-info-sign" aria-hidden="true"></i>
                         <span v-if="full=='min'">关于</span>
                     </a>
                 </li>

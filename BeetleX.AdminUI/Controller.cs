@@ -26,17 +26,17 @@ namespace BeetleX.AdminUI
         {
             return (from b in (from a in DataHelper.Defalut.Orders
                                group a by GetCustomerFullName(a.CustomerID) into b
-                               select new { name = b.Key, value = b.Count() })
+                               select new { name = b.Key, value = b.Count(), b.FirstOrDefault().CustomerID })
                     orderby b.value descending
                     select b).Take(20);
-                   
+
         }
 
         public object EmployeeStatis()
         {
             return from a in DataHelper.Defalut.Orders
                    group a by GetEmployeeFullName(a.EmployeeID) into b
-                   select new { name = b.Key, value = b.Count() };
+                   select new { name = b.Key, value = b.Count(), b.FirstOrDefault()?.EmployeeID };
         }
 
         public object GetCustomerDetail(string id)
@@ -44,7 +44,7 @@ namespace BeetleX.AdminUI
             return new
             {
                 item = DataHelper.Defalut.Customers.FirstOrDefault(p => p.CustomerID == id),
-                orders = Orders(0, 0, id, 1000)
+                orders = Orders(0, 0, id,null, 1000)
             };
         }
 
@@ -53,7 +53,7 @@ namespace BeetleX.AdminUI
             return new
             {
                 item = DataHelper.Defalut.Employees.FirstOrDefault(p => p.EmployeeID == id),
-                orders = Orders(0, id, null, 1000)
+                orders = Orders(0, id, null,null, 1000)
             };
         }
 
@@ -74,12 +74,14 @@ namespace BeetleX.AdminUI
 
         }
 
-        public object Orders(int index, int employeeid, string customerid, int size = 20)
+        public object Orders(int index, int employeeid, string customerid, string month, int size = 20)
         {
             if (size == 0)
                 size = 20;
             Func<Order, bool> filter = (b) => (employeeid == 0 || b.EmployeeID == employeeid)
-                                      && (string.IsNullOrEmpty(customerid) || b.CustomerID == customerid);
+                                      && (string.IsNullOrEmpty(customerid) || b.CustomerID == customerid)
+                                      && (string.IsNullOrEmpty(month) || b.OrderDate.ToString("yyyy/MM") == month);
+
             var count = DataHelper.Defalut.Orders.Count(filter);
             int pages = count / size;
             if (count % size > 0)

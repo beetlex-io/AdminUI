@@ -1,17 +1,22 @@
 [
   {
-    "outputFileName": "views/models/bundle.js",
+    "outputFileName": "views/models/_models.html",
     "inputFiles": [
-      "views/models/windowsbar.js",
-      "views/models/orders.js",
-      "views/models/menu.js",
-      "views/models/home.js",
-      "views/models/footer.js",
-      "views/models/employees.js",
-      "views/models/employeedetail.js",
-      "views/models/customers.js",
-      "views/models/customerdetail.js",
-      "views/models/about.js"
+      "views/models/about.html",
+      "views/models/customerdetail.html",
+      "views/models/customers.html",
+      "views/models/customerspie.html",
+      "views/models/employeedetail.html",
+      "views/models/employees.html",
+      "views/models/employeespie.html",
+      "views/models/Footer.html",
+      "views/models/home.html",
+      "views/models/menu.html",
+      "views/models/monthline.html",
+      "views/models/neworders.html",
+      "views/models/orders.html",
+      "views/models/panel.html",
+      "views/models/windowsbar.html"
     ]
   }
 ]

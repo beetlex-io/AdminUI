@@ -19,7 +19,9 @@ namespace BeetleX.AdminUI
                         o.LogLevel = BeetleX.EventArgs.LogType.Warring;
 
                     },
-
+                    s => {
+                        s.AddExts("eot;svg;ttf;woff;woff2");
+                    },
                     typeof(Program).Assembly);
                 });
             builder.Build().Run();
