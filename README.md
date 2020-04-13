@@ -7,5 +7,5 @@ Beetlex+Vuejs+Bootstrap admin ui website
 ## demo
 http://adminui.beetlex.io
 
-![image](https://user-images.githubusercontent.com/2564178/74409164-1f341780-4e71-11ea-96b1-58c54052af3d.png)
+![image](https://user-images.githubusercontent.com/2564178/74583133-cdb99300-4ffe-11ea-89f6-e438fc7212bd.png)
 
