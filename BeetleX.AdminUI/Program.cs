@@ -1,4 +1,5 @@
 ﻿using BeetleX.FastHttpApi.Hosting;
+using BeetleX.FastHttpApi.VueExtend;
 using Microsoft.Extensions.Hosting;
 using System;
 
@@ -13,7 +14,7 @@ namespace BeetleX.AdminUI
                 {
                     services.UseBeetlexHttp(o =>
                     {
-                        //o.Port = 80;
+                        o.Port = 80;
                         o.SetDebug();
                         o.LogToConsole = true;
                         o.LogLevel = BeetleX.EventArgs.LogType.Warring;
@@ -21,6 +22,9 @@ namespace BeetleX.AdminUI
                     },
                     s => {
                         s.AddExts("eot;svg;ttf;woff;woff2");
+                        s.Vue().Debug();
+                        s.Vue().AddScript(typeof(Program).Assembly,
+                          "vue.js", "axios.js", "beetlex4axios.js", "jquery.js", "echarts.js", "bootstrap.js");
                     },
                     typeof(Program).Assembly);
                 });

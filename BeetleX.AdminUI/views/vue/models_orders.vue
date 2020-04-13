@@ -1,4 +1,4 @@
-﻿<template id="__models_orders">
+﻿
     <div>
        
         <div class="form-inline">
@@ -55,9 +55,9 @@
         </table>
 
     </div>
-</template>
+
 <script>
-    Vue.component('models_orders', {
+{
         
         data: function () {
             return {
@@ -86,7 +86,6 @@
                 });
             };
             this.GetOrders.get();
-        },
-        template: __models_orders,
-    })
+        }
+    }
 </script>

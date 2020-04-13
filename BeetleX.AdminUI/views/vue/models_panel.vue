@@ -1,4 +1,4 @@
-﻿<template id="__model_panel">
+﻿
     <div>
         <div :class="GetStyle()">
             <div class="model-panel-title">
@@ -12,9 +12,9 @@
 
         </div>
     </div>
-</template>
+
 <script>
-    Vue.component('models_panel', {
+{
         props: ["winsize", "child", "token", "title"],
         data: function () {
             return {
@@ -58,7 +58,7 @@
         },
         mounted: function () {
 
-        },
-        template: __model_panel,
-    })
+        }
+       
+    }
 </script>

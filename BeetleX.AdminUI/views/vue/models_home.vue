@@ -1,5 +1,4 @@
-﻿<template id="__models_home">
-    <div style="width:99%;">
+﻿    <div style="width:99%;">
         <div class="row">
             <div class="col-lg-6">
                 <models_panel :title="'销售走势'" :child="'models_monthline'" :winsize="winsize"></models_panel>
@@ -18,9 +17,8 @@
 
         </div>
     </div>
-</template>
 <script>
-    Vue.component('models_home', {
+ {
         props: ["winsize"],
         data: function () {
             return {
@@ -30,7 +28,6 @@
         methods: {
            
         },
-        template: __models_home,
         watch: {
             winsize(val) {
               
@@ -39,5 +36,5 @@
         mounted: function () {
           
         }
-    })
+    }
 </script>

@@ -1,4 +1,4 @@
-﻿<template id="__windowsbar">
+﻿
     <div class="windows_bar" :style="{left:(fullStatus=='max'?'70px':'270px')}">
 
         <ul class="nav nav-tabs" style="display:flex" id="windowsbar">
@@ -12,9 +12,9 @@
             </li>
         </ul>
     </div>
-</template>
+
 <script>
-    Vue.component('windows_bar', {
+{
         props: ['windows', 'full', 'selectwindow'],
         data: function () {
             return {
@@ -75,9 +75,8 @@
                 }
             },
         },
-        template: __windowsbar,
         mounted: function () {
 
         }
-    });
+    }
 </script>

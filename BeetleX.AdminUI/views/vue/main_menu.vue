@@ -1,5 +1,4 @@
-﻿<template id="__menu">
-    <div :class="[full=='min'?'menu_full':'menu_min']">
+﻿    <div :class="[full=='min'?'menu_full':'menu_min']">
         <div>
             <h3 v-if="full=='min'" style="margin-top:10px;margin-right:-5px;padding-left:40px;font-size:11pt;"><a href="http://beetlex.io" target="_blank">BeetleX.AdminUI</a></h3>
             <a v-if="full=='min'" href="javascript:void(0)" @click="OnResizeMenu('max')" style="float:right;margin-top:-30px;">
@@ -42,9 +41,9 @@
             </ul>
         </div>
     </div>
-</template>
+
 <script>
-    Vue.component('main_menu', {
+  {
         data: function () {
             return {
                 full: 'min',
@@ -71,7 +70,6 @@
                 this.$open('about', '关于', 'models_about');
             },
         },
-        template: __menu,
         mounted: function () { }
-    });
+    }
 </script>

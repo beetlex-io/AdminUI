@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -31,36 +31,21 @@
     <None Remove="views\js\echarts.js" />
     <None Remove="views\js\jquery.js" />
     <None Remove="views\js\vue.js" />
-    <None Remove="views\models\about.html" />
-    <None Remove="views\models\about.js" />
-    <None Remove="views\models\customerdetail.html" />
-    <None Remove="views\models\customerdetail.js" />
-    <None Remove="views\models\customers.html" />
-    <None Remove="views\models\customers.js" />
-    <None Remove="views\models\customerspie.html" />
-    <None Remove="views\models\customerspie.js" />
-    <None Remove="views\models\employeedetail.html" />
-    <None Remove="views\models\employeedetail.js" />
-    <None Remove="views\models\employees.html" />
-    <None Remove="views\models\employees.js" />
-    <None Remove="views\models\employeespie.html" />
-    <None Remove="views\models\employeespie.js" />
-    <None Remove="views\models\Footer.html" />
-    <None Remove="views\models\footer.js" />
-    <None Remove="views\models\home.html" />
-    <None Remove="views\models\home.js" />
-    <None Remove="views\models\menu.html" />
-    <None Remove="views\models\menu.js" />
-    <None Remove="views\models\monthline.html" />
-    <None Remove="views\models\monthline.js" />
-    <None Remove="views\models\neworders.html" />
-    <None Remove="views\models\neworders.js" />
-    <None Remove="views\models\orders.html" />
-    <None Remove="views\models\orders.js" />
-    <None Remove="views\models\windowsbar.html" />
-    <None Remove="views\models\windowsbar.js" />
-    <None Remove="views\models\_models.html" />
-    <None Remove="views\models\_models.js" />
+    <None Remove="views\vue\main_menu.vue" />
+    <None Remove="views\vue\models_about.vue" />
+    <None Remove="views\vue\models_customerdetail.vue" />
+    <None Remove="views\vue\models_customers.vue" />
+    <None Remove="views\vue\models_employeedetail.vue" />
+    <None Remove="views\vue\models_employees.vue" />
+    <None Remove="views\vue\models_home.vue" />
+    <None Remove="views\vue\models_monthline.vue" />
+    <None Remove="views\vue\models_neworders.vue" />
+    <None Remove="views\vue\models_orders.vue" />
+    <None Remove="views\vue\models_panel.vue" />
+    <None Remove="views\vue\model_customerspie.vue" />
+    <None Remove="views\vue\model_employeesspie.vue" />
+    <None Remove="views\vue\page_footer.vue" />
+    <None Remove="views\vue\windows_bar.vue" />
   </ItemGroup>
 
   <ItemGroup>
@@ -89,147 +74,28 @@
     <EmbeddedResource Include="views\js\echarts.js" />
     <EmbeddedResource Include="views\js\jquery.js" />
     <EmbeddedResource Include="views\js\vue.js" />
-    <EmbeddedResource Include="views\models\about.html">
-      <Generator>VueModel</Generator>
-      <LastGenOutput>about.js</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\about.js">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>about.html</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\customerdetail.html">
-      <Generator>VueModel</Generator>
-      <LastGenOutput>customerdetail.js</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\customerdetail.js">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>customerdetail.html</DependentUpon>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\customers.html">
-      <Generator>VueModel</Generator>
-      <LastGenOutput>customers.js</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\customers.js">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>customers.html</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\customerspie.html">
-      <Generator>VueModel</Generator>
-      <LastGenOutput>customerspie.js</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\customerspie.js">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>customerspie.html</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\employeedetail.html">
-      <Generator>VueModel</Generator>
-      <LastGenOutput>employeedetail.js</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\employeedetail.js">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>employeedetail.html</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\employees.html">
-      <Generator>VueModel</Generator>
-      <LastGenOutput>employees.js</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\employees.js">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>employees.html</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\employeespie.html">
-      <Generator>VueModel</Generator>
-      <LastGenOutput>employeespie.js</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\employeespie.js">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>employeespie.html</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\Footer.html">
-      <Generator>VueModel</Generator>
-      <LastGenOutput>Footer.js</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\footer.js">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Footer.html</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\home.html">
-      <Generator>VueModel</Generator>
-      <LastGenOutput>home.js</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\home.js">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>home.html</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\menu.html">
-      <Generator>VueModel</Generator>
-      <LastGenOutput>menu.js</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\menu.js">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>menu.html</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\monthline.html">
-      <Generator>VueModel</Generator>
-      <LastGenOutput>monthline.js</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\monthline.js">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>monthline.html</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\neworders.html">
-      <Generator>VueModel</Generator>
-      <LastGenOutput>neworders.js</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\neworders.js">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>neworders.html</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\orders.html">
-      <Generator>VueModel</Generator>
-      <LastGenOutput>orders.js</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\orders.js">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>orders.html</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\windowsbar.html">
-      <Generator>VueModel</Generator>
-      <LastGenOutput>windowsbar.js</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\windowsbar.js">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>windowsbar.html</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\_models.html">
-      <Generator>VueModel</Generator>
-      <LastGenOutput>_models.js</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\models\_models.js">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>_models.html</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="views\vue\main_menu.vue" />
+    <EmbeddedResource Include="views\vue\models_about.vue" />
+    <EmbeddedResource Include="views\vue\models_customerdetail.vue" />
+    <EmbeddedResource Include="views\vue\models_customers.vue" />
+    <EmbeddedResource Include="views\vue\models_employeedetail.vue" />
+    <EmbeddedResource Include="views\vue\models_employees.vue" />
+    <EmbeddedResource Include="views\vue\models_home.vue" />
+    <EmbeddedResource Include="views\vue\model_customerspie.vue" />
+    <EmbeddedResource Include="views\vue\model_employeesspie.vue" />
+    <EmbeddedResource Include="views\vue\models_monthline.vue" />
+    <EmbeddedResource Include="views\vue\models_neworders.vue" />
+    <EmbeddedResource Include="views\vue\models_orders.vue" />
+    <EmbeddedResource Include="views\vue\page_footer.vue" />
+    <EmbeddedResource Include="views\vue\models_panel.vue" />
+    <EmbeddedResource Include="views\vue\windows_bar.vue" />
+
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="BeetleX.FastHttpApi" Version="1.7.8" />
-    <PackageReference Include="BeetleX.FastHttpApi.Hosting" Version="1.2.0" />
+    <PackageReference Include="BeetleX.FastHttpApi" Version="1.8.2.2" />
+    <PackageReference Include="BeetleX.FastHttpApi.Hosting" Version="1.2.4" />
+    <PackageReference Include="BeetleX.FastHttpApi.VueExtend" Version="0.6.7" />
     <PackageReference Include="Northwind.Data" Version="1.2.3" />
   </ItemGroup>
 
@@ -239,15 +105,6 @@
     </None>
     <None Update="run.sh">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="views\models\panel.html">
-      <Generator>VueModel</Generator>
-      <LastGenOutput>panel.js</LastGenOutput>
-    </None>
-    <None Update="views\models\panel.js">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>panel.html</DependentUpon>
     </None>
   </ItemGroup>
 

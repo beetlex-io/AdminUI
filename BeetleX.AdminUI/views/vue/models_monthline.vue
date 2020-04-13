@@ -1,9 +1,9 @@
-﻿<template id="__model_customerspie">
-    <div>
-        <div id="customerspie" style="height:400px;">
+﻿    <div>
+        <div id="monthline" style="height:260px;">
         </div>
+
         <table v-if="full=='max'" class="table" style="margin-bottom:0px;">
-            <caption style="text-align:center;font-size:12pt;font-weight:bold;">{{title}}</caption>
+            <caption style="text-align:center;font-size:12pt;font-weight:bold;">{{month}}</caption>
             <thead>
                 <tr>
                     <th>Employee</th>
@@ -30,23 +30,22 @@
             </tbody>
         </table>
     </div>
-</template>
 <script>
-    Vue.component('model_customerspie', {
-        props: ["winsize","panelStatus"],
+ {
+        props: ["winsize", "panelStatus"],
         data: function () {
             return {
-                CustomerStatis: new beetlexAction("/CustomerStatis"),
+                TimeStatis: new beetlexAction("/TimeStatis"),
                 GetOrders: new beetlexAction("/Orders", { index: 0, employeeid: 0, customerid: '' }, { pages: 0, items: [] }),
-                customerPie: null,
+                timeline: null,
                 full: this.panelStatus,
-                title: '',
+                month:'',
             };
         },
         watch: {
             winsize(val) {
-                if (this.customerPie)
-                    this.customerPie.resize();
+                if (this.timeline)
+                    this.timeline.resize();
             },
             panelStatus(val) {
                 this.full = val;
@@ -54,8 +53,8 @@
         },
         methods: {
             OnItemClick: function (e) {
-                this.title = e.name;
-                this.GetOrders.get({ index: 0, size: 100, customerid: e.data.CustomerID });
+                this.month = e.name;
+                this.GetOrders.get({ size: 100, month: e.name });
                 console.log(e);
             },
             OnOpenCustomer: function (item) {
@@ -67,44 +66,49 @@
         },
         mounted: function () {
             var that = this;
-            this.CustomerStatis.requested = function (r) {
+            this.TimeStatis.requested = function (r) {
                 var option = {
                     grid: {
-                        top: 0,
-                        bottom: 0,
+                        top: 10,
+                        bottom: 20,
                         right: 20,
-                        left: 20
+                        left: 60
                     },
                     tooltip: {
-                        trigger: 'item',
-                        formatter: '{a} <br/>{b} : {c} ({d}%)'
-                    },
-                    series: [
-                        {
-                            name: '客户',
-                            type: 'pie',
-                            radius: '55%',
-                            center: ['50%', '50%'],
-                            data: r,
-                            emphasis: {
-                                itemStyle: {
-                                    shadowBlur: 10,
-                                    shadowOffsetX: 0,
-                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                                }
+                        trigger: 'axis',
+                        axisPointer: {
+                            type: 'cross',
+                            label: {
+                                backgroundColor: '#6a7985'
                             }
                         }
-                    ]
+                    },
+                    xAxis: {
+                        type: 'category',
+                        data: []
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [{
+                        data: [],
+                        type: 'line',
+                        areaStyle: {},
+                        smooth: true
+                    }]
                 };
-                var dom = document.getElementById("customerspie");
-                that.customerPie = echarts.init(dom);
-                that.customerPie.setOption(option, true);
-                that.customerPie.on('click', function (params) {
+                r.forEach(function (v) {
+                    option.xAxis.data.push(v.Key);
+                    option.series[0].data.push(v.Value);
+                });
+                var dom = document.getElementById("monthline");
+                that.timeline = echarts.init(dom);
+                that.timeline.setOption(option, false);
+                that.timeline.on('click', function (params) {
                     that.OnItemClick(params);
                 });
             };
-            this.CustomerStatis.get();
-        },
-        template: __model_customerspie,
-    })
+            this.TimeStatis.get();
+        }
+    }
 </script>

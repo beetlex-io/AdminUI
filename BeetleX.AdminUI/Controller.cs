@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Text;
 using Northwind.Data;
 using System.Linq;
+using BeetleX.FastHttpApi.VueExtend;
+
 namespace BeetleX.AdminUI
 {
     [Controller]
@@ -20,6 +22,11 @@ namespace BeetleX.AdminUI
                 pages,
                 items = DataHelper.Defalut.Customers.Skip(size * index).Take(size)
             };
+        }
+
+        public object GetScript(IHttpContext context)
+        {
+            return context.Server.Vue().Response(context);
         }
 
         public object CustomerStatis()

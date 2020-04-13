@@ -1,5 +1,4 @@
-﻿<template id="__models_employees">
-    <div>
+﻿    <div>
         <table class="table">
             <thead>
                 <tr>
@@ -24,9 +23,8 @@
             </tbody>
         </table>
     </div>
-</template>
 <script>
-    Vue.component('models_employees', {
+    {
         data: function () {
             return {
                 GetEmployees: new beetlexAction("/Employees", null, []),
@@ -39,7 +37,6 @@
         },
         mounted: function () {
             this.GetEmployees.get();
-        },
-        template: __models_employees,
-    })
+        }
+    }
 </script>

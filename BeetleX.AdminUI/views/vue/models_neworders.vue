@@ -1,4 +1,4 @@
-﻿<template id="__models_neworders">
+﻿
     <table class="table" style="margin-bottom:0px;">
         <thead>
             <tr>
@@ -30,10 +30,9 @@
             </tr>
         </tbody>
     </table>
-</template>
 
 <script>
-    Vue.component('models_neworders', {
+{
         props: ['panelStatus'],
         data: function () {
             return {
@@ -63,7 +62,6 @@
         },
         mounted: function () {
             this.TopOrders.get();
-        },
-        template: __models_neworders,
-    })
+        }
+    }
 </script>
