@@ -1,11 +1,9 @@
 ﻿<!DOCTYPE html>
-
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <link href="css/bootstrap.css" rel="stylesheet" />
-    <link href="css/bootstrapadmin.css" rel="stylesheet" />
-    <script src="/GetScript"></script>
+    <link href="/css/v1.css?group=BeetleX.AdminUI" rel="stylesheet" />
+    <script src="/js/v1.js?group=BeetleX.AdminUI"></script>
     <title>BeetleX AdminUI</title>
 </head>
 <body>
@@ -20,72 +18,8 @@
         <page_footer></page_footer>
     </div>
     <script>
-       
-        var model = {
-            full: 'min',
-            windows: [],
-            selectWindow: {
-            },
-            selectModel: '',
-            sizeVersion: 1,
-        };
-        var page = new Vue({
-            el: '#page', data: model,
-            methods: {
-                OnMenuResize: function (event) {
-                    this.full = event;
-                    this.OnResize();
-                },
-
-                OnCloseWindows: function (e) {
-                    var index = -1;
-                    for (i = 0; i < this.windows.length; i++) {
-                        if (this.windows[i].id == e.id) {
-                            index = i;
-                            break;
-                        }
-                    }
-                    if (index >= 0) {
-                        this.windows.splice(index, 1);
-                        if (this.windows.length > 0)
-                            this.OnOpenWindow(this.windows[0]);
-                        else {
-                            this.selectWindow = null;
-                            this.selectModel = null;
-                        }
-                    }
-
-                },
-
-                OnOpenWindow: function (e) {
-                    var has = false;
-                    for (i = 0; i < this.windows.length; i++) {
-                        var item = this.windows[i];
-                        if (item.id == e.id)
-                            has = true;
-                    }
-                    if (has == false) {
-                        this.windows.push(e);
-                    }
-                    this.selectWindow = e;
-                    this.selectModel = e.model;
-                },
-                OnResize: function () {
-                    this.sizeVersion = this.sizeVersion + 1;
-                },
-            }
-        });
+        var page = new Vue(pageInfo);
         page.OnOpenWindow({ id: 'home', title: '主页', model: 'models_home' })
-        window.onresize = function () {
-            page.OnResize();
-        };
-        Vue.prototype.$fullScreen = function () {
-            return page.full;
-        };
-        Vue.prototype.$open = function (id, title, model, data) {
-            page.OnOpenWindow({ id: id, title: title, model: model, data: data });
-        };
     </script>
 </body>
-
 </html>

@@ -30,6 +30,7 @@
     <None Remove="views\js\bootstrap.js" />
     <None Remove="views\js\echarts.js" />
     <None Remove="views\js\jquery.js" />
+    <None Remove="views\js\page.js" />
     <None Remove="views\js\vue.js" />
     <None Remove="views\vue\main_menu.vue" />
     <None Remove="views\vue\models_about.vue" />
@@ -73,6 +74,9 @@
     <EmbeddedResource Include="views\js\bootstrap.js" />
     <EmbeddedResource Include="views\js\echarts.js" />
     <EmbeddedResource Include="views\js\jquery.js" />
+    <EmbeddedResource Include="views\js\page.js">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="views\js\vue.js" />
     <EmbeddedResource Include="views\vue\main_menu.vue" />
     <EmbeddedResource Include="views\vue\models_about.vue" />
@@ -93,9 +97,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="BeetleX.FastHttpApi" Version="1.8.2.2" />
+    <PackageReference Include="BeetleX.FastHttpApi" Version="1.8.3.8" />
     <PackageReference Include="BeetleX.FastHttpApi.Hosting" Version="1.2.4" />
-    <PackageReference Include="BeetleX.FastHttpApi.VueExtend" Version="0.6.7" />
+    <PackageReference Include="BeetleX.FastHttpApi.VueExtend" Version="0.7.6.8" />
     <PackageReference Include="Northwind.Data" Version="1.2.3" />
   </ItemGroup>
 
